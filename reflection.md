@@ -1,7 +1,7 @@
 # Reflection
 
-Student Name:  name
-Sudent Email:  email
+Student Name:  Connor Cluett
+Sudent Email:  cpcluett@syr.edu
 
 ## Instructions
 
@@ -22,4 +22,5 @@ Examples:
 **Best Reflection** "I learned when to use while vs for loops. While loops are for sentiel-controlled values (waiting for a condition to occur), vs for loops are for iterating over collections of fixed values."
 
 `--- Reflection Below This Line ---`
+This assignment, based on my skills, was more of a recollection of previous python skills than new material as we are still ramping up class skills. I struggled most with the first function and the last 2 were very easy as they were based on the first. The syntax for splitting was a little confusing, but after reading upon it, I knew that I needed 2 parts to split the "in" part of the sentences into 2. However, I then struggled as it was showing 2 items, one singular and one plural, causing most of my tests to error. I then thought it would be important to make a function that loops over the list items and compare, and if the two items match, remove the singular object or first part of the list. This then made my function work. This was the most difficult part of the assignment, but using my blank file, I was able to think through the proper process of acheiving a normal output. This assignment also helped me practice vscode committing, testing, and debugging. As I need these processes going forward, I am happy that I am learning quickly. Overall, this code helped me recall the importance of making functions build on each other, and splitting strings to manipulate lists in a JSON format.
 
