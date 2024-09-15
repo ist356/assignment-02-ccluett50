@@ -18,7 +18,33 @@ def parse_packaging(packaging_data: str) -> list[dict]:
     input: "20 pieces in 1 pack / 10 packs in 1 carton / 4 cartons in 1 box"
     output: [{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]
     '''
-    pass # TODO: Replace this line and write code
+
+    temp_package = []
+
+    for data in packaging_data.split(' / '):
+        m_item = data.split(" in ")[0]
+        m_quantity = int(m_item.split()[0])
+        m_item = m_item.split()[1].strip()
+        temp_package.append({m_item: m_quantity})
+        
+        s_item = data.split(" in ")[1]
+        s_quantity = int(s_item.split()[0])
+        s_item = s_item.split()[1].strip()
+        temp_package.append({s_item: s_quantity})
+
+    # Filter out consecutive duplicates
+    #rstrip is used due to the plural form of items that is matching the strings
+    package = []
+
+    for i in range(len(temp_package) - 1):
+        current_item = list(temp_package[i].keys())[0].rstrip('s')
+        next_item = list(temp_package[i + 1].keys())[0].rstrip('s')
+        if current_item != next_item:
+            package.append(temp_package[i])
+    package.append(temp_package[-1])
+            
+    return package
+    
 
 
 def calc_total_units(package: list[dict]) -> int:
@@ -33,7 +59,13 @@ def calc_total_units(package: list[dict]) -> int:
     input: [{ 'pieces' : 20}, {'packs' : 10}, {'carton' : 4}, {'box' : 1}]
     output: 800 (e.g. 20*10*4*1)
     '''
-    pass # TODO: Replace this line and write code
+    num_list = []
+    result = 1
+    for value in package:
+        num_list.append(list(value.values())[0])
+    for num in num_list:
+        result *= num
+    return result
 
 
 def get_unit(package: list[dict]) -> str:
@@ -49,7 +81,9 @@ def get_unit(package: list[dict]) -> str:
     output: pieces
 
     '''
-    pass # TODO: Replace this line and write code
+    package_key = list(package[0].keys())[0]
+    return package_key
+
 
 # This will only run from here, not when imported
 # # Use this for testing / debugging cases with the debugger
